@@ -15,3 +15,6 @@ Border security is informed of all incoming and outgoing passengers.<br>
 Shops and restaurants rent a space in tax-free zones.<br>
 Security is notified of all events within the airport.<br>
 All airport customers are billed through the airport financial department.<br>
+
+#### Azure
+https://dev.azure.com/SolutionStrijders/Airport
