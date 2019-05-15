@@ -48,3 +48,12 @@ Every service should function without any of the other services<br>
 When one part of the application goes down, the rest of the app should stay available<br>
 Any part of the app should be scalable to handle increased traffic<br>
 While a part of the app is maintained, the rest of the app should stay available<br>
+
+### Functional requirements 
+
+Tickets can be cancelled by the customer <br>
+Airstrips can be reserved for flights <br>
+Status of flights can be tracked <br>
+Plane can’t fly before fuel check <br>
+Plane can’t fly or land before permission of the control tower<br>
+Customer can’t book a flight if it’s full<br>
