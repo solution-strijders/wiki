@@ -35,21 +35,16 @@ https://dev.azure.com/SolutionStrijders/Airport
   - [ ] Enterprise Integration Patterns (at least one)
 
 ### Non functionals
-Modularity
-Fault tolerance
-Scalability
-Availability
-Maintainability
-
-Every service should function without any of the other services
-When one part of the application goes down, the rest of the app should stay available
-Any part of the app should be scalable to handle increased traffic
-While a part of the app is maintained, the rest of the app should stay available
+- Modularity: Every service should function without any of the other services
+- Fault tolerance: When one part of the application goes down, the rest of the app should stay available
+- Scalability: Any part of the app should be scalable to handle increased traffic
+- Availability: While a part of the app is maintained, the rest of the app should stay available
+- Maintainability
 
 ### Functional requirements 
-Tickets can be cancelled by the customer 
-Airstrips can be reserved for flights 
-Status of flights can be tracked 
-Plane can't fly before fuel check 
-Plane can't fly or land before permission of the control tower
-Customer can't book a flight if it's full
+- Tickets can be cancelled by the customer 
+- Airstrips can be reserved for flights 
+- Status of flights can be tracked 
+- Plane can't fly before fuel check 
+- Plane can't fly or land before permission of the control tower
+- Customer can't book a flight if it's full
