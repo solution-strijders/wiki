@@ -21,7 +21,7 @@ https://dev.azure.com/SolutionStrijders/Airport
 
 #### Deliverables
 ~~ArchiMate model of the enterprise architecture.~~ <br>
-Context map.<br>
+~~Context map.~~<br>
 Non-functional requirements.<br>
 Functional requirements added to the given requirements, based on assumptions.<br>
 Implementation of all functional and non-functional requirements as described for your case.<br>
