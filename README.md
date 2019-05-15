@@ -34,3 +34,17 @@ Event driven architecture based on messaging<br>
 Command Query Responsibility Segregation (CQRS)<br>
 Event Sourcing<br>
 Enterprise Integration Patterns (at least one)<br>
+
+
+#### Non functionals
+
+Modularity<br>
+Fault tolerance<br>
+Scalability<br>
+Availability<br>
+Maintainability<br><br>
+
+Every service should function without any of the other services<br>
+When one part of the application goes down, the rest of the app should stay available<br>
+Any part of the app should be scalable to handle increased traffic<br>
+While a part of the app is maintained, the rest of the app should stay available<br>
