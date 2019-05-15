@@ -18,3 +18,19 @@ All airport customers are billed through the airport financial department.<br>
 
 #### Azure
 https://dev.azure.com/SolutionStrijders/Airport
+
+#### Deliverables
+~~ArchiMate model of the enterprise architecture.~~ <br>
+Context map.<br>
+Non-functional requirements.<br>
+Functional requirements added to the given requirements, based on assumptions.<br>
+Implementation of all functional and non-functional requirements as described for your case.<br>
+Postman or Swagger scripts that trigger the various RESTful Web API’s to allow showing that functionality works. So, there’s no need to create a GUI in order to save you work.<br>
+Docker image of your application. <br>
+Motivation of each of the following concepts as applied to your case in a document. Use of these concepts is mandatory. Describe where it is applied and why it is applied:<br>
+Microservices based on the principles of DDD<br>
+Eventual consistency<br>
+Event driven architecture based on messaging<br>
+Command Query Responsibility Segregation (CQRS)<br>
+Event Sourcing<br>
+Enterprise Integration Patterns (at least one)<br>
