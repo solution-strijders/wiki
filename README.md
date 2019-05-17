@@ -22,7 +22,7 @@ The different processes as described by various stakeholders:
 - [x] Functional requirements added to the given requirements, based on assumptions.
 - [ ] Implementation of all functional and non-functional requirements as described for your case.
 - [ ] Postman or Swagger scripts that trigger the various RESTful Web API's to allow showing that functionality works. So, there's no need to create a GUI in order to save you work.
-- [ ] Docker image of your application. 
+- [x] Docker image of your application. 
 - [ ] Motivation of each of the following concepts as applied to your case in a document. Use of these concepts is mandatory. Describe where it is applied and why it is applied:
   - [ ] Microservices based on the principles of DDD
   - [ ] Eventual consistency
