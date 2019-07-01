@@ -55,7 +55,7 @@ Functional requirements added to the given requirements, based on assumptions.
 
 - [X] Status of flights can be tracked 
 - [X] Plane can't fly before fuel check 
-- [ ] Plane can't fly or land before permission of the control tower
+- [X] Plane can't fly or land before permission of the control tower
 - [ ] Customers will be billed for costs before a flight
 
 ### Case
