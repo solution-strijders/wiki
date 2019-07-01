@@ -53,10 +53,10 @@ The message broker RabbitMQ is implemented and the node module Rabbot is used to
 ### Functional requirements
 Functional requirements added to the given requirements, based on assumptions.
 
-- Status of flights can be tracked 
-- Plane can't fly before fuel check 
-- Plane can't fly or land before permission of the control tower
-- Customers will be billed for costs before a flight
+- [X] Status of flights can be tracked 
+- [X] Plane can't fly before fuel check 
+- [ ] Plane can't fly or land before permission of the control tower
+- [ ] Customers will be billed for costs before a flight
 
 ### Case
 The goal of this application is to allow different staff from an airport to efficiently manage their own specific domains in a modular way. To ensure that the thousands of passengers can get on their hundreds of flights, the application must be able to deal with heavy loads and must be available at all times, even if part of the application stops working for whatever reason. In the application, it is also important to have management tools for all the different domains set by the stakeholders and described in the Archimate model.
