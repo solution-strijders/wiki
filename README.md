@@ -20,7 +20,7 @@ The different processes as described by various stakeholders:
 - [x] Context map.
 - [x] Non-functional requirements.
 - [x] Functional requirements added to the given requirements, based on assumptions.
-- [ ] Implementation of all functional and non-functional requirements as described for your case.
+- [x] Implementation of all functional and non-functional requirements as described for your case.
 - [ ] Postman or Swagger scripts that trigger the various RESTful Web API's to allow showing that functionality works. So, there's no need to create a GUI in order to save you work.
 - [x] Docker image of your application. 
 - [ ] Motivation of each of the following concepts as applied to your case in a document. Use of these concepts is mandatory. Describe where it is applied and why it is applied:
@@ -56,7 +56,7 @@ Functional requirements added to the given requirements, based on assumptions.
 - [X] Status of flights can be tracked 
 - [X] Plane can't fly before fuel check 
 - [X] Plane can't fly or land before permission of the control tower
-- [ ] Customers will be billed for costs before a flight
+- [X] Customers will be billed for costs before a flight
 
 ### Case
 The goal of this application is to allow different staff from an airport to efficiently manage their own specific domains in a modular way. To ensure that the thousands of passengers can get on their hundreds of flights, the application must be able to deal with heavy loads and must be available at all times, even if part of the application stops working for whatever reason. In the application, it is also important to have management tools for all the different domains set by the stakeholders and described in the Archimate model.
