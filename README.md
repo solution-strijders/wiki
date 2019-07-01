@@ -42,7 +42,7 @@ To ensure that different queries will provide the data that is requested by the 
 
 Implementing event sourcing is useful for guaranteeing that different access requests are logged for further audits, this might be useful for the context of a flight tower auditing the historical flight data and making further plans based on already available data through event sourcing (and therefor logging).
 
-Enterprise Intergration Pattern
+The message broker RabbitMQ is implemented and the node module Rabbot is used to communicate with RabbitMQ services. This way the application makes use of a messaging pattern. Messages are sent after a new update has been posted to the database, and then Rabbot takes over and with the help of RabbitMQ sends the message to the other services which are connected to it and read the message. Every service has their own Rabbot configuration and a way in their controller to send a message with the message broker. In Rabbot the channels can be configured, the messages are sent via routes that can be configured in the Rabbot file for each service. 
 
 ### Non-functional requirements
 - **Modularity**: Every service should function without any of the other services
