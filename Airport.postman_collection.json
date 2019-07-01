@@ -1,0 +1,680 @@
+{
+	"info": {
+		"_postman_id": "980122e3-d8ed-4037-8d58-93fc0f5e8232",
+		"name": "Airport",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "BaggageManagement",
+			"item": [
+				{
+					"name": "BaggageRetrieve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "42047355-f6d1-47ab-8c5b-467a6d337ee2",
+								"exec": [
+									"pm.test(\"getBaggage\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.value).to.eql(100);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/<somebaggageId>",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"<somebaggageId>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BaggageStow",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "weight",
+									"value": "50",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3001/<somebaggageId>",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"<somebaggageId>"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BorderManagement",
+			"item": [
+				{
+					"name": "GetPassengers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3002/",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreatePassengers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Joerie",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "18",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3002/<someId>",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"<someId>"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CheckinManagement",
+			"item": [
+				{
+					"name": "GetCheckIns",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3003/<someId>",
+							"host": [
+								"localhost"
+							],
+							"port": "3003",
+							"path": [
+								"<someId>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CheckIn",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "CheckInNumber",
+									"value": "25",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3003/<someId>",
+							"host": [
+								"localhost"
+							],
+							"port": "3003",
+							"path": [
+								"<someId>"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ControlManagement",
+			"item": [
+				{
+					"name": "GetFlightsControl",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetFlightControl",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/<someId>",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"<someId>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ApproveTakeoffControl",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/<someId>/approve-takeoff",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"<someId>",
+								"approve-takeoff"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ApproveLandingControl",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/<someId>/approve-landing",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"<someId>",
+								"approve-landing"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FinancialManagement",
+			"item": [
+				{
+					"name": "FindDepartements",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3005/",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateDepartement",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Sally and co",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3005/",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FlightManagement",
+			"item": [
+				{
+					"name": "GetFlight",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3006/flight/<someId>",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"flight",
+								"<someId>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateFlight",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "FlightNumber",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "Origin",
+									"value": "Schiphol",
+									"type": "text"
+								},
+								{
+									"key": "Plane",
+									"value": "12345",
+									"type": "text"
+								},
+								{
+									"key": "Airline",
+									"value": "Avansed",
+									"type": "text"
+								},
+								{
+									"key": "Destination",
+									"value": "Hamburg",
+									"type": "text"
+								},
+								{
+									"key": "Gate",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "DepartDateTime",
+									"value": "25-03-2020",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3006/flights",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"flights"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ChangeFlightStatus",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Status",
+									"value": "Delayed",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3006/<someId>",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"<someId>"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GroundManagement",
+			"item": [
+				{
+					"name": "GetPlanesGround",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3007/",
+							"host": [
+								"localhost"
+							],
+							"port": "3007",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPlaneGround",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3007/<someId>",
+							"host": [
+								"localhost"
+							],
+							"port": "3007",
+							"path": [
+								"<someId>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ApproveFuelGround",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3007/<someId>/approve-fuel",
+							"host": [
+								"localhost"
+							],
+							"port": "3007",
+							"path": [
+								"<someId>",
+								"approve-fuel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SpaceManagement",
+			"item": [
+				{
+					"name": "GetSpaces",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Name",
+									"value": "managementspace",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3009/",
+							"host": [
+								"localhost"
+							],
+							"port": "3009",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateSpace",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Name",
+									"value": "MySpace",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3009/",
+							"host": [
+								"localhost"
+							],
+							"port": "3009",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReserveSpace",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "spaceType",
+									"value": "Big",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3009/reserve/<someId>",
+							"host": [
+								"localhost"
+							],
+							"port": "3009",
+							"path": [
+								"reserve",
+								"<someId>"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SecurityManagement",
+			"item": [
+				{
+					"name": "GetEvents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3012/",
+							"host": [
+								"localhost"
+							],
+							"port": "3012",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "WriteEvent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3011/",
+							"host": [
+								"localhost"
+							],
+							"port": "3011",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
