@@ -42,6 +42,8 @@ To ensure that different queries will provide the data that is requested by the 
 
 Implementing event sourcing is useful for guaranteeing that different access requests are logged for further audits, this might be useful for the context of a flight tower auditing the historical flight data and making further plans based on already available data through event sourcing (and therefor logging).
 
+Enterprise Intergration Pattern
+
 ### Non-functional requirements
 - **Modularity**: Every service should function without any of the other services
 - **Fault tolerance**: When one part of the application goes down, the rest of the app should stay available
