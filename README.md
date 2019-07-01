@@ -23,26 +23,32 @@ The different processes as described by various stakeholders:
 - [x] Implementation of all functional and non-functional requirements as described for your case.
 - [ ] Postman or Swagger scripts that trigger the various RESTful Web API's to allow showing that functionality works. So, there's no need to create a GUI in order to save you work.
 - [x] Docker image of your application. 
-- [ ] Motivation of each of the following concepts as applied to your case in a document. Use of these concepts is mandatory. Describe where it is applied and why it is applied:
-  - [ ] Microservices based on the principles of DDD
-  - [ ] Eventual consistency
-  - [ ] Event driven architecture based on messaging
-  - [ ] Command Query Responsibility Segregation (CQRS)
-  - [ ] Event Sourcing
-  - [ ] Enterprise Integration Patterns (at least one)
+- [x] Motivation of each of the following concepts as applied to your case in a document. Use of these concepts is mandatory. Describe where it is applied and why it is applied:
+  - [x] Microservices based on the principles of DDD
+  - [x] Eventual consistency
+  - [x] Event driven architecture based on messaging
+  - [x] Command Query Responsibility Segregation (CQRS)
+  - [x] Event Sourcing
+  - [x] Enterprise Integration Patterns (at least one)
 
-### Concept Motivation
-Microservices was included in our case to provide excellent modularity of the differing services and providing a level of fault tolerance with independent down-time required for guaranteeing the most depended upon services the airport application must provide.
+### Motivatie
 
-Eventual consistency is useful in an application where all the different services are distant from each other and operate apart from each other. Using events, the central data storage can be updated according to generated events later to not impair the functionality of the microservices.
+- Microservices:
+We hebben microservices gebruikt om de applicatie goed schaalbaar te kunnen maken. Het kan zijn dat bepaalde services veel meer gebruikt zullen worden als andere, zoals Check-in. In dat geval is een microservices applicatie de beste oplossing.
 
-In the airport application it is imperative that all different targets are notified as soon as possible of the latest changes within the application. Therefor implementing event driven architecture patterns based on messaging is a useful solution to the problem. This way, the different microservices can get dynamically notified of the different changes within other context of the application.
+- Eventual Consistency:
+We passen eventual consistency toe aan de hand van een message broker (RabbitMQ). Elke service heeft zijn aparte database en handelt dus dan ook zijn eigen data.  Als er in een service een aanpassing wordt gedaan, kan er een event naar de message broker worden verstuurd, en kunnen vanaf daar de andere relevante services de event ophalen en hun eigen data aanpassen. Hierdoor hangen de services wel nog steeds van elkaar los, maar delen ze (uiteindelijk) wel dezelfde data.
 
-To ensure that different queries will provide the data that is requested by the part of the application, using CQRS is the ideal solution to the problem of interconnecting the different services the airport application uses.
+- Event driven architecture:
+Zoals al eerder genoemd maken we gebruik van RabbitMQ. Met RabbitMQ kunnen we aan de hand van events services met elkaar laten communiceren. Na een bepaalde gebeurtenis stuurt een service een event naar RabbitMQ. Andere services kunnen luisteren naar binnenkomende events, en daar op hun eigen manier op reageren. Hierdoor kunnen de services wel met elkaar communiceren, zonder dat ze van elkaar afweten.
 
-Implementing event sourcing is useful for guaranteeing that different access requests are logged for further audits, this might be useful for the context of a flight tower auditing the historical flight data and making further plans based on already available data through event sourcing (and therefor logging).
+- CQRS:
+CQRS passen we toe bij de Security service. De security service hebben we opgesplitst tussen read en write. De write service houd de message broker in de gaten en slaat alle relevante data op. De read service haalt de data op uit de db en weergeeft deze. 
+Door read en write op te splitsen, kunnen we ervoor zorgen dat de één nog werkt mocht de andere neer gaan. Voor security is het belangrijk dat deze zo veel mogelijk beschikbaar is. Door security op te splitsen, is er dus een grotere kans dat in ieder geval één van de twee online is.
 
-The message broker RabbitMQ is implemented and the node module Rabbot is used to communicate with RabbitMQ services. This way the application makes use of a messaging pattern. Messages are sent after a new update has been posted to the database, and then Rabbot takes over and with the help of RabbitMQ sends the message to the other services which are connected to it and read the message. Every service has their own Rabbot configuration and a way in their controller to send a message with the message broker. In Rabbot the channels can be configured, the messages are sent via routes that can be configured in the Rabbot file for each service. 
+- Event Sourcing:
+Met behulp van RabbitMQ kunnen we ook gebruik maken van event sourcing. Security is een service die luistert naar alle events. Deze slaat alle events van alle andere services in zijn eigen database. In de events staan ook de objecten die worden aangemaakt/aangepast. Dit is dan ook meteen onze event store. Als het nodig zou moeten zijn, zouden we met de events die opgeslagen zijn alle data repliceren.
+
 
 ### Non-functional requirements
 - **Modularity**: Every service should function without any of the other services
