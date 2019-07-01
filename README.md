@@ -47,17 +47,14 @@ Implementing event sourcing is useful for guaranteeing that different access req
 - **Fault tolerance**: When one part of the application goes down, the rest of the app should stay available
 - **Scalability**: Any part of the app should be scalable to handle increased traffic
 - **Availability**: While a part of the app is maintained, the rest of the app should stay available
-- **Maintainability**
 
 ### Functional requirements
 Functional requirements added to the given requirements, based on assumptions.
 
-- Tickets can be cancelled by the customer 
-- Airstrips can be reserved for flights 
 - Status of flights can be tracked 
 - Plane can't fly before fuel check 
 - Plane can't fly or land before permission of the control tower
-- Customer can't book a flight if it's full
+- Customers will be billed for costs before a flight
 
 ### Case
 The goal of this application is to allow different staff from an airport to efficiently manage their own specific domains in a modular way. To ensure that the thousands of passengers can get on their hundreds of flights, the application must be able to deal with heavy loads and must be available at all times, even if part of the application stops working for whatever reason. In the application, it is also important to have management tools for all the different domains set by the stakeholders and described in the Archimate model.
